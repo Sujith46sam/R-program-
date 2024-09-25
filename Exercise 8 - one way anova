@@ -1,0 +1,26 @@
+# Create a Dataset
+scores <- c(88, 90, 85, 92, 95, 78, 82, 87, 91, 86, 83, 89, 94, 80, 77)
+groups <- factor(c(rep("Group A", 5), rep("Group B", 5), rep("Group C", 5)))
+
+# Combine into a data frame
+data <- data.frame(scores, groups)
+
+# Display the dataset
+cat("Dataset:\n")
+print(data)
+
+# Perform One-Way ANOVA
+anova_result <- aov(scores ~ groups, data = data)
+
+# View the ANOVA Summary
+cat("\nOne-Way ANOVA Results:\n")
+print(summary(anova_result))
+
+# Interpretation
+p_value <- summary(anova_result)[[1]]["Pr(>F)"][1]
+
+if (p_value < 0.05) {
+  cat("\nConclusion: There is a significant difference between the group means (reject the null hypothesis)\n")
+} else {
+  cat("\nConclusion: There is no significant difference between the group means (fail to reject the null hypothesis)\n")
+}
