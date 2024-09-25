@@ -1,0 +1,26 @@
+# Create a Dataset
+weights <- c(68, 72, 65, 70, 74, 60, 63, 67, 69, 64, 76, 78, 71, 73, 75)
+diets <- factor(c(rep("Diet A", 5), rep("Diet B", 5), rep("Diet C", 5)))
+
+# Combine into a data frame
+data <- data.frame(weights, diets)
+
+# Display the dataset
+cat("Dataset:\n")
+print(data)
+
+# Perform One-Way ANOVA
+anova_result <- aov(weights ~ diets, data = data)
+
+# View the ANOVA Summary
+cat("\nOne-Way ANOVA Results:\n")
+print(summary(anova_result))
+
+# Interpretation
+p_value <- summary(anova_result)[[1]]["Pr(>F)"][1]
+
+if (p_value < 0.05) {
+  cat("\nConclusion: There is a significant difference in weight between the diets (reject the null hypothesis)\n")
+} else {
+  cat("\nConclusion: There is no significant difference in weight between the diets (fail to reject the null hypothesis)\n")
+}
