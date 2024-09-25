@@ -1,0 +1,39 @@
+# 1. Plot Normal Distribution
+cat("Plotting Normal Distribution:\n")
+
+x_normal <- seq(-10, 10, length = 100)
+y_normal <- dnorm(x_normal, mean = 0, sd = 1)
+
+# Plot Normal Distribution
+plot(x_normal, y_normal, type = "l", col = "blue", lwd = 2,
+     main = "Normal Distribution", xlab = "x", ylab = "Density")
+
+# 2. Plot Binomial Distribution
+cat("Plotting Binomial Distribution:\n")
+
+x_binom <- 0:10
+y_binom <- dbinom(x_binom, size = 10, prob = 0.5)
+
+# Plot Binomial Distribution
+barplot(y_binom, names.arg = x_binom, col = "green",
+        main = "Binomial Distribution", xlab = "Number of Successes", ylab = "Probability")
+
+# 3. Plot Poisson Distribution
+cat("Plotting Poisson Distribution:\n")
+
+x_pois <- 0:15
+y_pois <- dpois(x_pois, lambda = 4)
+
+# Plot Poisson Distribution
+barplot(y_pois, names.arg = x_pois, col = "red",
+        main = "Poisson Distribution", xlab = "Number of Events", ylab = "Probability")
+
+# 4. Plot Exponential Distribution
+cat("Plotting Exponential Distribution:\n")
+
+x_exp <- seq(0, 5, length = 100)
+y_exp <- dexp(x_exp, rate = 1)
+
+# Plot Exponential Distribution
+plot(x_exp, y_exp, type = "l", col = "purple", lwd = 2,
+     main = "Exponential Distribution", xlab = "x", ylab = "Density")
