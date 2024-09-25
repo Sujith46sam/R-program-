@@ -1,0 +1,24 @@
+Ex : 6.1 simple linear regression analysis in R
+# Step 1: Create a dataset
+# Example dataset with height (in cm) and weight (in kg)
+height <- c(150, 160, 170, 180, 190)
+weight <- c(50, 60, 70, 80, 90)
+
+# Create a data frame
+data <- data.frame(height, weight)
+
+# Step 2: Fit a linear model
+model <- lm(weight ~ height, data = data)
+
+# Step 3: View the model summary
+summary(model)
+
+# Step 4: Plot the regression line
+plot(data$height, data$weight, main="Height vs Weight Regression", 
+     xlab="Height (cm)", ylab="Weight (kg)", pch=19)
+abline(model, col="blue")
+
+# Step 5: Predict the weight for a height of 172.5 cm
+new_height <- data.frame(height = 172.5)
+predicted_weight <- predict(model, new_height)
+print(paste("Predicted weight for 172.5 cm:", predicted_weight))
