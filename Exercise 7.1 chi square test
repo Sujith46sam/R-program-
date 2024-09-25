@@ -1,0 +1,20 @@
+Exercise 7.1 chi square test 
+# Create the contingency table
+survey_data <- matrix(c(25, 30, 20, 35), nrow = 2, byrow = TRUE,
+                     dimnames = list(c("Young", "Middle-aged"), c("Italian", "Chinese")))
+
+# Display the contingency table
+print(survey_data)
+
+# Perform the Chi-Square Test for Independence
+chi_square_test <- chisq.test(survey_data)
+
+# View the Chi-Square Test Results
+print(chi_square_test)
+
+# Interpret the result
+if (chi_square_test$p.value < 0.05) {
+  cat("The variables are dependent.\n")
+} else {
+  cat("The variables are independent.\n")
+}
