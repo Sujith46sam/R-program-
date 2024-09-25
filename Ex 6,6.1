@@ -1,0 +1,27 @@
+Ex : 06 simple linear regression 
+# 1. Create Dataset
+# Independent variable: Hours of study
+# Dependent variable: Marks obtained
+hours <- c(1, 2, 3, 4, 5, 6, 7, 8, 9, 10)
+marks <- c(50, 55, 60, 65, 70, 75, 80, 85, 90, 95)
+
+# Plot the scatter plot
+plot(hours, marks,
+     main = "Scatter Plot of Hours vs. Marks",
+     xlab = "Hours of Study",
+     ylab = "Marks Obtained",
+     pch = 16,
+     col = "blue")
+
+# 2. Perform Simple Linear Regression
+model <- lm(marks ~ hours)
+
+# 3. View Model Summary
+print(summary(model))
+
+# 4. Plot the Regression Line
+abline(model, col = "red")
+
+# 5. Predict Marks for 6.5 hours of study
+predicted_marks <- predict(model, data.frame(hours = 6.5))
+cat("Predicted Marks for 6.5 hours of study:", predicted_marks, "\n")
