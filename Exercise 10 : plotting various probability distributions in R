@@ -28,7 +28,7 @@ y_pois <- dpois(x_pois, lambda = 4)
 barplot(y_pois, names.arg = x_pois, col = "red",
         main = "Poisson Distribution", xlab = "Number of Events", ylab = "Probability")
 
-# 4. Plot Exponential Distribution
+# Plot Exponential Distribution
 cat("Plotting Exponential Distribution:\n")
 
 x_exp <- seq(0, 5, length = 100)
