@@ -1,0 +1,26 @@
+# Example: Weights of individuals in Group 1 and Group 2
+group1 <- c(68, 72, 65, 70, 74) # Weights in Group 1
+group2 <- c(60, 63, 67, 69, 64) # Weights in Group 2
+
+# Display the samples
+cat("Group 1 Weights:\n")
+print(group1)
+
+cat("Group 2 Weights:\n")
+print(group2)
+
+# Perform Two-Sample T-Test
+t_test_result <- t.test(group1, group2)
+
+# View the T-Test Results
+cat("\nTwo-Sample T-Test Results:\n")
+print(t_test_result)
+
+# Interpretation
+p_value <- t_test_result$p.value
+
+if (p_value < 0.05) {
+  cat("\nConclusion: There is a significant difference between the means of the two groups (reject the null hypothesis).\n")
+} else {
+  cat("\nConclusion: There is no significant difference between the means of the two groups (fail to reject the null hypothesis).\n")
+}
