@@ -1,0 +1,17 @@
+# Set the shape parameters
+shape_params <- c(1, 2, 3, 4, 5)
+
+# Set the rate parameter (scale parameter)
+rate_param <- 2
+
+# Create a vector of x values for plotting
+x <- seq(0, 10, length.out = 100)
+
+# Plot Gamma distributions for different shape parameters
+par(mfrow = c(2, 3))  # Create a 2x3 grid of plots
+for (shape in shape_params) {
+  y <- dgamma(x, shape = shape, rate = rate_param)
+  plot(x, y, type = "l", col = "blue", lwd = 2,
+       main = paste("Gamma Distribution (Shape =", shape, ")"),
+       xlab = "x", ylab = "Density")
+}
