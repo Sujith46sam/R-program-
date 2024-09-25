@@ -1,0 +1,26 @@
+# Example: Heights of individuals in Group A and Group B
+groupA <- c(165, 170, 168, 172, 163) # Heights in Group A
+groupB <- c(175, 180, 178, 182, 173) # Heights in Group B
+
+# Display the samples
+cat("Group A Heights:\n")
+print(groupA)
+
+cat("Group B Heights:\n")
+print(groupB)
+
+# Perform Two-Sample T-Test
+t_test_result <- t.test(groupA, groupB)
+
+# View the T-Test Results
+cat("\nTwo-Sample T-Test Results:\n")
+print(t_test_result)
+
+# Interpretation
+p_value <- t_test_result$p.value
+
+if (p_value < 0.05) {
+  cat("\nConclusion: There is a significant difference in height between the two groups (reject the null hypothesis).\n")
+} else {
+  cat("\nConclusion: There is no significant difference in height between the two groups (fail to reject the null hypothesis).\n")
+}
