@@ -1,0 +1,27 @@
+Exercise 7 : chi square test for independence 
+# 1. Create Contingency Table
+# Let's consider a study about the preference of two types of sports (Football and Basketball)
+# among males and females in a sample of 100 individuals.
+
+# Contingency Table: Rows = Gender, Columns = Sport Preference
+gender_sport <- matrix(c(30, 10, 20, 40), nrow = 2, byrow = TRUE,
+  dimnames = list("Gender" = c("Male", "Female"),
+                  "Sport" = c("Football", "Basketball")))
+
+# Display the contingency table
+cat("Contingency Table:\n")
+print(gender_sport)
+
+# 2. Perform Chi-Square Test for Independence
+chi_square_test <- chisq.test(gender_sport)
+
+# 3. View Test Results
+cat("\nChi-Square Test Results:\n")
+print(chi_square_test)
+
+# 4. Interpretation
+if (chi_square_test$p.value < 0.05) {
+  cat("\nConclusion: The variables are not independent (reject the null hypothesis).\n")
+} else {
+  cat("\nConclusion: The variables are independent (fail to reject the null hypothesis).\n")
+}
